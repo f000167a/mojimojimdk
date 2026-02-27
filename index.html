@@ -40,7 +40,12 @@ var HG=[
 ["ま行","ま","み","む","め","も"],
 ["や行","や","ゆ","よ"],
 ["ら行","ら","り","る","れ","ろ"],
-["わ行","わ","を","ん"]
+["わ行","わ","を","ん"],
+["が行","が","ぎ","ぐ","げ","ご"],
+["ざ行","ざ","じ","ず","ぜ","ぞ"],
+["だ行","だ","ぢ","づ","で","ど"],
+["ば行","ば","び","ぶ","べ","ぼ"],
+["ぱ行","ぱ","ぴ","ぷ","ぺ","ぽ"]
 ];
 var KG=[
 ["ア行","ア","イ","ウ","エ","オ"],
@@ -52,10 +57,15 @@ var KG=[
 ["マ行","マ","ミ","ム","メ","モ"],
 ["ヤ行","ヤ","ユ","ヨ"],
 ["ラ行","ラ","リ","ル","レ","ロ"],
-["ワ行","ワ","ヲ","ン"]
+["ワ行","ワ","ヲ","ン"],
+["ガ行","ガ","ギ","グ","ゲ","ゴ"],
+["ザ行","ザ","ジ","ズ","ゼ","ゾ"],
+["ダ行","ダ","ヂ","ヅ","デ","ド"],
+["バ行","バ","ビ","ブ","ベ","ボ"],
+["パ行","パ","ピ","プ","ペ","ポ"]
 ];
 
-var RM="あ a,い i,う u,え e,お o,か ka,き ki,く ku,け ke,こ ko,さ sa,し shi,す su,せ se,そ so,た ta,ち chi,つ tsu,て te,と to,な na,に ni,ぬ nu,ね ne,の no,は ha,ひ hi,ふ fu,へ he,ほ ho,ま ma,み mi,む mu,め me,も mo,や ya,ゆ yu,よ yo,ら ra,り ri,る ru,れ re,ろ ro,わ wa,を wo,ん n,ア a,イ i,ウ u,エ e,オ o,カ ka,キ ki,ク ku,ケ ke,コ ko,サ sa,シ shi,ス su,セ se,ソ so,タ ta,チ chi,ツ tsu,テ te,ト to,ナ na,ニ ni,ヌ nu,ネ ne,ノ no,ハ ha,ヒ hi,フ fu,ヘ he,ホ ho,マ ma,ミ mi,ム mu,メ me,モ mo,ヤ ya,ユ yu,ヨ yo,ラ ra,リ ri,ル ru,レ re,ロ ro,ワ wa,ヲ wo,ン n";
+var RM="あ a,い i,う u,え e,お o,か ka,き ki,く ku,け ke,こ ko,さ sa,し shi,す su,せ se,そ so,た ta,ち chi,つ tsu,て te,と to,な na,に ni,ぬ nu,ね ne,の no,は ha,ひ hi,ふ fu,へ he,ほ ho,ま ma,み mi,む mu,め me,も mo,や ya,ゆ yu,よ yo,ら ra,り ri,る ru,れ re,ろ ro,わ wa,を wo,ん n,が ga,ぎ gi,ぐ gu,げ ge,ご go,ざ za,じ ji,ず zu,ぜ ze,ぞ zo,だ da,ぢ di,づ du,で de,ど do,ば ba,び bi,ぶ bu,べ be,ぼ bo,ぱ pa,ぴ pi,ぷ pu,ぺ pe,ぽ po,ア a,イ i,ウ u,エ e,オ o,カ ka,キ ki,ク ku,ケ ke,コ ko,サ sa,シ shi,ス su,セ se,ソ so,タ ta,チ chi,ツ tsu,テ te,ト to,ナ na,ニ ni,ヌ nu,ネ ne,ノ no,ハ ha,ヒ hi,フ fu,ヘ he,ホ ho,マ ma,ミ mi,ム mu,メ me,モ mo,ヤ ya,ユ yu,ヨ yo,ラ ra,リ ri,ル ru,レ re,ロ ro,ワ wa,ヲ wo,ン n,ガ ga,ギ gi,グ gu,ゲ ge,ゴ go,ザ za,ジ ji,ズ zu,ゼ ze,ゾ zo,ダ da,ヂ di,ヅ du,デ de,ド do,バ ba,ビ bi,ブ bu,ベ be,ボ bo,パ pa,ピ pi,プ pu,ペ pe,ポ po";
 var R={};
 RM.split(",").forEach(function(p){var a=p.split(" ");R[a[0]]=a[1];});
 
@@ -71,6 +81,11 @@ var WS=[
 "や 🏔️ やま","ゆ ❄️ ゆき (ありのままで♪)","よ 🧚 ようせい (フェアリー)",
 "ら 💜 らべんだー","り 🎀 りぼん (かわいい♪)","る 💎 るびー (ほうせき)","れ 👗 れーす (ドレス)","ろ 🕯️ ろうそく (おねがい！)",
 "わ 💍 わっか (ゆびわ)","を 🎶 を","ん 🌟 ん",
+"が 🎵 がっき (おんがく♪)","ぎ 🥛 ぎゅうにゅう","ぐ 🧤 ぐろーぶ (てぶくろ)","げ 🎮 げーむ (あそぼ！)","ご 🍚 ごはん (もぐもぐ)",
+"ざ 📖 ざっし (えほん)","じ 🧲 じしゃく","ず 🖍️ ずこう (おえかき♪)","ぜ 🍮 ぜりー (おやつ)","ぞ 🐘 ぞう (おおきい！)",
+"だ 🤗 だいすき！","ぢ 🩹 はなぢ","づ 🫙 つけもの (おづけもの)","で 🚪 でぐち (おでかけ)","ど 🚗 どらいぶ (おでかけ♪)",
+"ば 🌹 ばら (おはな)","び 🏥 びょういん","ぶ 🐷 ぶた (ぶーぶー)","べ 🍱 おべんとう (おいしい♪)","ぼ 🎩 ぼうし (おしゃれ)",
+"ぱ 🥞 ぱんけーき♪","ぴ 🐣 ぴよぴよ (ひよこ)","ぷ 🍮 ぷりん (おやつ！)","ぺ 🐧 ぺんぎん (かわいい♪)","ぽ 🍿 ぽっぷこーん",
 "ア 🍬 アメ (キャンディ♪)","イ 💎 イシ (ホウセキ)","ウ 🎵 ウタ♪","エ 👗 エルサみたいな ドレス","オ 👸 オヒメサマ",
 "カ 👑 カンムリ (ティアラ！)","キ ✨ キラキラ","ク 👠 クツ (ガラスの クツ)","ケ 🎂 ケーキ♪","コ 💖 ココロ (ハート)",
 "サ 🌸 サクラ","シ 🏰 シロ (おシロ)","ス ⭐ スター","セ 🧚 セカイ (まほうの セカイ)","ソ ☁️ ソラ",
@@ -80,12 +95,17 @@ var WS=[
 "マ ✨ マホウ (まほうつかい)","ミ 🪞 ミラー (かがみ)","ム 💜 ムラサキ","メ 👸 メイク (おケショウ)","モ 🍑 モモ (ピーチ♪)",
 "ヤ 🏔️ ヤマ","ユ ❄️ ユキ (ありのままで♪)","ヨ 🧚 ヨウセイ (フェアリー)",
 "ラ 💜 ラベンダー","リ 🎀 リボン (カワイイ♪)","ル 💎 ルビー","レ 👗 レース (ドレス)","ロ 🕯️ ロウソク (おネガイ！)",
-"ワ 💍 ワッカ (ユビワ)","ヲ 🎶 ヲ","ン 🌟 ン"
+"ワ 💍 ワッカ (ユビワ)","ヲ 🎶 ヲ","ン 🌟 ン",
+"ガ 🎵 ガッキ (オンガク♪)","ギ 🥛 ギュウニュウ","グ 🧤 グローブ (テブクロ)","ゲ 🎮 ゲーム (アソボ！)","ゴ 🍚 ゴハン (モグモグ)",
+"ザ 📖 ザッシ (エホン)","ジ 🧲 ジシャク","ズ 🖍️ ズコウ (おエカキ♪)","ゼ 🍮 ゼリー (オヤツ)","ゾ 🐘 ゾウ (オオキイ！)",
+"ダ 🤗 ダイスキ！","ヂ 🩹 ハナヂ","ヅ 🫙 ツケモノ (おヅケモノ)","デ 🚪 デグチ (おデカケ)","ド 🚗 ドライブ (おデカケ♪)",
+"バ 🌹 バラ (おハナ)","ビ 🏥 ビョウイン","ブ 🐷 ブタ (ブーブー)","ベ 🍱 おベントウ (オイシイ♪)","ボ 🎩 ボウシ (オシャレ)",
+"パ 🥞 パンケーキ♪","ピ 🐣 ピヨピヨ (ヒヨコ)","プ 🍮 プリン (オヤツ！)","ペ 🐧 ペンギン (カワイイ♪)","ポ 🍿 ポップコーン"
 ];
 WS.forEach(function(s){var i=s.indexOf(" ");WD[s.charAt(0)]=s.substring(i+1);});
 
 var PR=["すごーい！👸✨","おひめさま みたい！👑","きらきら〜！💎","まほうつかい だね！🪄","かわいい〜！🎀","100てん！💖","ぱーふぇくと！⭐","すてき〜！🌸","やったね！🎉","てんさい！🌈","プリキュア みたい！💫","プリンセス！👸💖"];
-var GC=["#FF69B4","#B388FF","#87CEEB","#FFB6D9","#FFEAA7","#DDA0DD","#FF9FF3","#54A0FF","#E8D5F5","#FFD700","#B2F5EA","#FF69B4"];
+var GC=["#FF69B4","#B388FF","#87CEEB","#FFB6D9","#FFEAA7","#DDA0DD","#FF9FF3","#54A0FF","#E8D5F5","#FFD700","#FF6348","#48DBFB","#A29BFE","#FD79A8","#00B894"];
 var PCS=["#FF69B4","#B388FF","#222222","#87CEEB","#FFD700","#FF6348","#2ED573","#FF9FF3"];
 var SHP=["✨","⭐","💖","🌸","👑","💎","🎀","🦋"];
 
@@ -175,24 +195,32 @@ function judgeHandwriting(){
     if(rA&&dPx)overlap++;
   }
 
-  if(refPx===0||drawnPx===0){judgeResult={level:0};renderJudge();return;}
+  if(refPx===0||drawnPx===0){judgeResult={level:0};renderJudge();if(judgeTimer)clearTimeout(judgeTimer);judgeTimer=setTimeout(function(){drawGuide();judgeResult=null;var ja=document.getElementById("judgeArea");if(ja)ja.innerHTML="";},1800);return;}
   var coverage=overlap/refPx;
   var precision=overlap/drawnPx;
   var fScore=(coverage*precision)>0?2*(coverage*precision)/(coverage+precision):0;
   var spread=drawnPx/refPx;
 
   var level=0;
-  if(fScore>0.18&&coverage>0.15)level=3;
-  else if(fScore>0.10&&coverage>0.10)level=2;
-  else if(coverage>0.05||drawnPx>refPx*0.1)level=1;
+  if(fScore>0.28&&coverage>0.25)level=3;
+  else if(fScore>0.18&&coverage>0.15)level=2;
+  else if(coverage>0.08||drawnPx>refPx*0.15)level=1;
 
-  if(spread>3)level=Math.min(level,1);
+  if(spread>2.5)level=Math.min(level,1);
 
   judgeResult={level:level,coverage:Math.round(coverage*100),fScore:Math.round(fScore*100)};
-  if(level>=2)doConfetti();
   renderJudge();
   if(judgeTimer)clearTimeout(judgeTimer);
-  if(level>=2){judgeTimer=setTimeout(function(){advanceChar();},2500);}
+  if(level>=2){
+    doConfetti();
+    judgeTimer=setTimeout(function(){advanceChar();},2800);
+  }else{
+    judgeTimer=setTimeout(function(){
+      drawGuide();
+      judgeResult=null;
+      var ja=document.getElementById("judgeArea");if(ja)ja.innerHTML="";
+    },1800);
+  }
 }
 
 function advanceChar(){
@@ -240,9 +268,22 @@ function renderJudge(){
 }
 
 function doConfetti(){
-  showCf=true;praise=rnd(PR);render();
+  praise=rnd(PR);
+  var cont=document.createElement("div");
+  cont.id="confettiCont";
+  for(var i=0;i<20;i++){
+    var d=document.createElement("div");
+    d.style.cssText="position:fixed;top:-20px;left:"+Math.random()*100+"%;font-size:18px;opacity:0;pointer-events:none;z-index:200;animation:confettiFall 2s ease-in "+Math.random()*0.5+"s forwards";
+    d.textContent=rnd(SHP);
+    cont.appendChild(d);
+  }
+  var p=document.createElement("div");
+  p.style.cssText="position:fixed;top:30%;left:50%;font-size:clamp(20px,6vw,32px);font-weight:900;color:#FF69B4;text-shadow:0 2px 10px rgba(255,105,180,.3);animation:praiseFloat 2s ease-out forwards;z-index:150;pointer-events:none;white-space:nowrap";
+  p.textContent=praise;
+  cont.appendChild(p);
+  document.body.appendChild(cont);
   if(cfTimer)clearTimeout(cfTimer);
-  cfTimer=setTimeout(function(){showCf=false;render();},2200);
+  cfTimer=setTimeout(function(){var c=document.getElementById("confettiCont");if(c)c.remove();},2500);
 }
 
 function genQuiz(){
@@ -260,13 +301,6 @@ function render(){
   var chars=getChars(gs[grp]);
   if(!ch)ch=chars[0];
   var h="";
-
-  if(showCf){
-    for(var i=0;i<20;i++){
-      h+="<div style=\"position:fixed;top:-20px;left:"+Math.random()*100+"%;font-size:18px;opacity:0;pointer-events:none;z-index:200;animation:confettiFall 2s ease-in "+Math.random()*0.5+"s forwards\">"+rnd(SHP)+"</div>";
-    }
-    h+="<div style=\"position:fixed;top:30%;left:50%;font-size:clamp(20px,6vw,32px);font-weight:900;color:#FF69B4;text-shadow:0 2px 10px rgba(255,105,180,.3);animation:praiseFloat 2s ease-out forwards;z-index:150;pointer-events:none;white-space:nowrap\">"+praise+"</div>";
-  }
 
   h+="<div style=\"position:absolute;top:20px;left:10%;font-size:20px;animation:sparkle 3s infinite;pointer-events:none;opacity:.5\">✨</div>";
   h+="<div style=\"position:absolute;top:60px;right:8%;font-size:16px;animation:sparkle 4s infinite 1s;pointer-events:none;opacity:.4\">💎</div>";
@@ -308,15 +342,20 @@ function render(){
     h+="<button data-back=\"1\" style=\"margin-top:16px;padding:10px 24px;border-radius:50px;border:2px solid #FFD6EB;background:rgba(255,255,255,.8);font-size:14px;cursor:pointer;font-family:inherit;color:#C9A0DC;font-weight:700\">🌸 もどる</button>";
     h+="</div>";
   } else {
-    h+="<div style=\"display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch\">";
+    h+="<div style=\"margin-bottom:12px\">";
+    h+="<div style=\"display:flex;gap:5px;flex-wrap:wrap;justify-content:center;padding:4px 0 6px\">";
     for(var i=0;i<gs.length;i++){
       var ac=grp===i;
-      h+="<button data-grp=\""+i+"\" style=\"padding:8px 14px;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .3s;";
+      var isDaku=gs[i][0].charAt(0).match(/[がざだばぱガザダバパ]/);
+      if(i>0&&isDaku&&!gs[i-1][0].charAt(0).match(/[がざだばぱガザダバパ]/)){
+        h+="</div><div style=\"text-align:center;font-size:11px;color:#C9A0DC;font-weight:700;padding:2px 0\">🌟 だくてん・はんだくてん 🌟</div><div style=\"display:flex;gap:5px;flex-wrap:wrap;justify-content:center;padding:2px 0 4px\">";
+      }
+      h+="<button data-grp=\""+i+"\" style=\"padding:7px 12px;border-radius:14px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;";
       if(ac)h+="background:linear-gradient(135deg,"+GC[i%GC.length]+","+GC[(i+1)%GC.length]+");color:#fff;border:none;box-shadow:0 3px 12px "+GC[i%GC.length]+"44";
       else h+="background:rgba(255,255,255,.7);color:#C9A0DC;border:2px solid #FFD6EB";
       h+="\">"+gs[i][0]+"</button>";
     }
-    h+="</div>";
+    h+="</div></div>";
 
     h+="<div style=\"display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px\">";
     for(var i=0;i<chars.length;i++){
