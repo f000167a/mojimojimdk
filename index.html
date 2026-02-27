@@ -356,7 +356,7 @@ document.getElementById("app").addEventListener("click",function(e){
         judgeResult=null;render();return;
       }
       if(t.dataset.grp!==undefined){grp=parseInt(t.dataset.grp);ch=getChars(getGroups()[grp])[0];judgeResult=null;render();return;}
-      if(t.dataset.ch!==undefined){var idx=parseInt(t.dataset.ch);ch=getChars(getGroups()[grp])[idx];judgeResult=null;render();doConfetti();return;}
+      if(t.dataset.ch!==undefined){var idx=parseInt(t.dataset.ch);ch=getChars(getGroups()[grp])[idx];judgeResult=null;render();return;}
       if(t.dataset.ans!==undefined){
         if(qRes)return;
         var a=qOpts[parseInt(t.dataset.ans)];
