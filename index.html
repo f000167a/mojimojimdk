@@ -191,6 +191,21 @@ function judgeHandwriting(){
   judgeResult={level:level,coverage:Math.round(coverage*100),fScore:Math.round(fScore*100)};
   if(level>=2)doConfetti();
   renderJudge();
+  if(judgeTimer)clearTimeout(judgeTimer);
+  if(level>=2){judgeTimer=setTimeout(function(){advanceChar();},2500);}
+}
+
+function advanceChar(){
+  var gs=getGroups(),chars=getChars(gs[grp]);
+  var idx=chars.indexOf(ch);
+  if(idx<chars.length-1){
+    ch=chars[idx+1];
+  }else if(grp<gs.length-1){
+    grp++;ch=getChars(gs[grp])[0];
+  }else{
+    grp=0;ch=getChars(gs[0])[0];
+  }
+  judgeResult=null;render();
 }
 
 function renderJudge(){
@@ -209,9 +224,18 @@ function renderJudge(){
     if(i<lv)stars+="<span style=\"font-size:clamp(24px,5vw,32px);animation:starBurst .6s ease-out "+(i*0.15)+"s both\">⭐</span>";
     else stars+="<span style=\"font-size:clamp(24px,5vw,32px);opacity:.25\">☆</span>";
   }
+  var gs=getGroups(),chars=getChars(gs[grp]);
+  var idx=chars.indexOf(ch),nextCh="";
+  if(idx<chars.length-1)nextCh=chars[idx+1];
+  else if(grp<gs.length-1)nextCh=getChars(gs[grp+1])[0];
+  else nextCh=getChars(gs[0])[0];
+  var nextHtml="";
+  if(nextCh&&lv>=2)nextHtml="<div style=\"margin-top:6px;font-size:clamp(12px,3vw,14px);color:#C9A0DC\">つぎの もじ → <span style=\"font-size:clamp(18px,4vw,22px);font-weight:900;color:#FF69B4\">"+nextCh+"</span></div>";
+
   el.innerHTML="<div style=\"animation:resultPop .4s ease-out;text-align:center;padding:12px;background:rgba(255,255,255,.95);border-radius:20px;border:2px solid "+m[1]+";box-shadow:0 4px 20px "+m[1]+"33\">"
     +"<div style=\"margin-bottom:4px\">"+stars+"</div>"
     +"<div style=\"font-size:clamp(16px,4vw,22px);font-weight:900;color:"+m[1]+"\">"+m[0]+"</div>"
+    +nextHtml
     +"</div>";
 }
 
@@ -353,10 +377,10 @@ document.getElementById("app").addEventListener("click",function(e){
         var m=t.dataset.mode;
         if(m==="quiz"){isQuiz=true;score=0;streak=0;genQuiz();}
         else{mode=m;isQuiz=false;grp=0;ch=null;}
-        judgeResult=null;render();return;
+        judgeResult=null;if(judgeTimer)clearTimeout(judgeTimer);render();return;
       }
-      if(t.dataset.grp!==undefined){grp=parseInt(t.dataset.grp);ch=getChars(getGroups()[grp])[0];judgeResult=null;render();return;}
-      if(t.dataset.ch!==undefined){var idx=parseInt(t.dataset.ch);ch=getChars(getGroups()[grp])[idx];judgeResult=null;render();return;}
+      if(t.dataset.grp!==undefined){grp=parseInt(t.dataset.grp);ch=getChars(getGroups()[grp])[0];judgeResult=null;if(judgeTimer)clearTimeout(judgeTimer);render();return;}
+      if(t.dataset.ch!==undefined){var idx=parseInt(t.dataset.ch);ch=getChars(getGroups()[grp])[idx];judgeResult=null;if(judgeTimer)clearTimeout(judgeTimer);render();return;}
       if(t.dataset.ans!==undefined){
         if(qRes)return;
         var a=qOpts[parseInt(t.dataset.ans)];
@@ -365,7 +389,7 @@ document.getElementById("app").addEventListener("click",function(e){
         return;
       }
       if(t.dataset.back!==undefined){isQuiz=false;render();return;}
-      if(t.dataset.clear!==undefined){drawGuide();var ja=document.getElementById("judgeArea");if(ja)ja.innerHTML="";return;}
+      if(t.dataset.clear!==undefined){drawGuide();if(judgeTimer)clearTimeout(judgeTimer);var ja=document.getElementById("judgeArea");if(ja)ja.innerHTML="";return;}
       if(t.dataset.pen!==undefined){penCol=PCS[parseInt(t.dataset.pen)];render();return;}
       if(t.dataset.psz!==undefined){penSz=[4,6,10][parseInt(t.dataset.psz)];render();return;}
       if(t.dataset.judge!==undefined){judgeHandwriting();return;}
