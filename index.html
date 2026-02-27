@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -29,372 +28,368 @@ body{font-family:'Rounded Mplus 1c','Hiragino Maru Gothic Pro','Yu Gothic',sans-
 (function(){
 
 var HG=[
-[“あ行”,“あ”,“い”,“う”,“え”,“お”],
-[“か行”,“か”,“き”,“く”,“け”,“こ”],
-[“さ行”,“さ”,“し”,“す”,“せ”,“そ”],
-[“た行”,“た”,“ち”,“つ”,“て”,“と”],
-[“な行”,“な”,“に”,“ぬ”,“ね”,“の”],
-[“は行”,“は”,“ひ”,“ふ”,“へ”,“ほ”],
-[“ま行”,“ま”,“み”,“む”,“め”,“も”],
-[“や行”,“や”,“ゆ”,“よ”],
-[“ら行”,“ら”,“り”,“る”,“れ”,“ろ”],
-[“わ行”,“わ”,“を”,“ん”]
+["あ行","あ","い","う","え","お"],
+["か行","か","き","く","け","こ"],
+["さ行","さ","し","す","せ","そ"],
+["た行","た","ち","つ","て","と"],
+["な行","な","に","ぬ","ね","の"],
+["は行","は","ひ","ふ","へ","ほ"],
+["ま行","ま","み","む","め","も"],
+["や行","や","ゆ","よ"],
+["ら行","ら","り","る","れ","ろ"],
+["わ行","わ","を","ん"]
 ];
 var KG=[
-[“ア行”,“ア”,“イ”,“ウ”,“エ”,“オ”],
-[“カ行”,“カ”,“キ”,“ク”,“ケ”,“コ”],
-[“サ行”,“サ”,“シ”,“ス”,“セ”,“ソ”],
-[“タ行”,“タ”,“チ”,“ツ”,“テ”,“ト”],
-[“ナ行”,“ナ”,“ニ”,“ヌ”,“ネ”,“ノ”],
-[“ハ行”,“ハ”,“ヒ”,“フ”,“ヘ”,“ホ”],
-[“マ行”,“マ”,“ミ”,“ム”,“メ”,“モ”],
-[“ヤ行”,“ヤ”,“ユ”,“ヨ”],
-[“ラ行”,“ラ”,“リ”,“ル”,“レ”,“ロ”],
-[“ワ行”,“ワ”,“ヲ”,“ン”]
+["ア行","ア","イ","ウ","エ","オ"],
+["カ行","カ","キ","ク","ケ","コ"],
+["サ行","サ","シ","ス","セ","ソ"],
+["タ行","タ","チ","ツ","テ","ト"],
+["ナ行","ナ","ニ","ヌ","ネ","ノ"],
+["ハ行","ハ","ヒ","フ","ヘ","ホ"],
+["マ行","マ","ミ","ム","メ","モ"],
+["ヤ行","ヤ","ユ","ヨ"],
+["ラ行","ラ","リ","ル","レ","ロ"],
+["ワ行","ワ","ヲ","ン"]
 ];
 
-var RM=“あ a,い i,う u,え e,お o,か ka,き ki,く ku,け ke,こ ko,さ sa,し shi,す su,せ se,そ so,た ta,ち chi,つ tsu,て te,と to,な na,に ni,ぬ nu,ね ne,の no,は ha,ひ hi,ふ fu,へ he,ほ ho,ま ma,み mi,む mu,め me,も mo,や ya,ゆ yu,よ yo,ら ra,り ri,る ru,れ re,ろ ro,わ wa,を wo,ん n,ア a,イ i,ウ u,エ e,オ o,カ ka,キ ki,ク ku,ケ ke,コ ko,サ sa,シ shi,ス su,セ se,ソ so,タ ta,チ chi,ツ tsu,テ te,ト to,ナ na,ニ ni,ヌ nu,ネ ne,ノ no,ハ ha,ヒ hi,フ fu,ヘ he,ホ ho,マ ma,ミ mi,ム mu,メ me,モ mo,ヤ ya,ユ yu,ヨ yo,ラ ra,リ ri,ル ru,レ re,ロ ro,ワ wa,ヲ wo,ン n”;
+var RM="あ a,い i,う u,え e,お o,か ka,き ki,く ku,け ke,こ ko,さ sa,し shi,す su,せ se,そ so,た ta,ち chi,つ tsu,て te,と to,な na,に ni,ぬ nu,ね ne,の no,は ha,ひ hi,ふ fu,へ he,ほ ho,ま ma,み mi,む mu,め me,も mo,や ya,ゆ yu,よ yo,ら ra,り ri,る ru,れ re,ろ ro,わ wa,を wo,ん n,ア a,イ i,ウ u,エ e,オ o,カ ka,キ ki,ク ku,ケ ke,コ ko,サ sa,シ shi,ス su,セ se,ソ so,タ ta,チ chi,ツ tsu,テ te,ト to,ナ na,ニ ni,ヌ nu,ネ ne,ノ no,ハ ha,ヒ hi,フ fu,ヘ he,ホ ho,マ ma,ミ mi,ム mu,メ me,モ mo,ヤ ya,ユ yu,ヨ yo,ラ ra,リ ri,ル ru,レ re,ロ ro,ワ wa,ヲ wo,ン n";
 var R={};
-RM.split(”,”).forEach(function(p){var a=p.split(” “);R[a[0]]=a[1];});
+RM.split(",").forEach(function(p){var a=p.split(" ");R[a[0]]=a[1];});
 
 var WD={};
 var WS=[
-“あ 🍬 あめ (キャンディ♪)”,
-“い 💎 いし (ほうせき)”,
-“う 🎵 うた (おうた♪)”,
-“え 👗 えるさ みたいな ドレス”,
-“お 👸 おひめさま”,
-“か 👑 かんむり (ティアラ！)”,
-“き ✨ きらきら ひかる”,
-“く 👠 くつ (ガラスの くつ)”,
-“け 🎂 けーき♪”,
-“こ 💖 こころ (ハート)”,
-“さ 🌸 さくら (きれい！)”,
-“し 🏰 しろ (おしろ)”,
-“す ⭐ すたー (おほし)”,
-“せ 🧚 せかい (まほうの せかい)”,
-“そ ☁️ そら”,
-“た 💎 たからもの”,
-“ち 🦋 ちょうちょ”,
-“つ 🌙 つき (おつきさま)”,
-“て 🤝 て (つなごう)”,
-“と 🐦 とり (ことり)”,
-“な 🌷 なのはな”,
-“に 🌈 にじ (レインボー！)”,
-“ぬ 🧸 ぬいぐるみ”,
-“ね 🐱 ねこ (にゃー♪)”,
-“の 🌹 のばら”,
-“は 🌸 はな (おはな)”,
-“ひ 💫 ひかり (キラキラ)”,
-“ふ 🎀 ふりふり (フリル♪)”,
-“へ 🪄 へんしん (プリキュア！)”,
-“ほ ⭐ ほし (おほしさま)”,
-“ま ✨ まほう (まほうつかい)”,
-“み 🪞 みらー (かがみよ かがみ)”,
-“む 💜 むらさき”,
-“め 👸 めいく (おけしょう ごっこ)”,
-“も 🍑 もも (ピーチ♪)”,
-“や 🏔️ やま”,
-“ゆ ❄️ ゆき (ありのままで♪)”,
-“よ 🧚 ようせい (フェアリー)”,
-“ら 💜 らべんだー”,
-“り 🎀 りぼん (かわいい♪)”,
-“る 💎 るびー (ほうせき)”,
-“れ 👗 れーす (ドレス)”,
-“ろ 🕯️ ろうそく (おねがい！)”,
-“わ 💍 わっか (ゆびわ)”,
-“を 🎶 を”,
-“ん 🌟 ん”,
-“ア 🍬 アメ (キャンディ♪)”,
-“イ 💎 イシ (ホウセキ)”,
-“ウ 🎵 ウタ♪”,
-“エ 👗 エルサみたいな ドレス”,
-“オ 👸 オヒメサマ”,
-“カ 👑 カンムリ (ティアラ！)”,
-“キ ✨ キラキラ”,
-“ク 👠 クツ (ガラスの クツ)”,
-“ケ 🎂 ケーキ♪”,
-“コ 💖 ココロ (ハート)”,
-“サ 🌸 サクラ”,
-“シ 🏰 シロ (おシロ)”,
-“ス ⭐ スター”,
-“セ 🧚 セカイ (まほうの セカイ)”,
-“ソ ☁️ ソラ”,
-“タ 💎 タカラモノ”,
-“チ 🦋 チョウチョ”,
-“ツ 🌙 ツキ (おツキサマ)”,
-“テ 🤝 テ (つなごう)”,
-“ト 🐦 トリ (コトリ)”,
-“ナ 🌷 ナノハナ”,
-“ニ 🌈 ニジ (レインボー！)”,
-“ヌ 🧸 ヌイグルミ”,
-“ネ 🐱 ネコ (にゃー♪)”,
-“ノ 🌹 ノバラ”,
-“ハ 🌸 ハナ (おハナ)”,
-“ヒ 💫 ヒカリ”,
-“フ 🎀 フリフリ (フリル♪)”,
-“ヘ 🪄 ヘンシン (プリキュア！)”,
-“ホ ⭐ ホシ”,
-“マ ✨ マホウ (まほうつかい)”,
-“ミ 🪞 ミラー (かがみ)”,
-“ム 💜 ムラサキ”,
-“メ 👸 メイク (おケショウ)”,
-“モ 🍑 モモ (ピーチ♪)”,
-“ヤ 🏔️ ヤマ”,
-“ユ ❄️ ユキ (ありのままで♪)”,
-“ヨ 🧚 ヨウセイ (フェアリー)”,
-“ラ 💜 ラベンダー”,
-“リ 🎀 リボン (カワイイ♪)”,
-“ル 💎 ルビー”,
-“レ 👗 レース (ドレス)”,
-“ロ 🕯️ ロウソク (おネガイ！)”,
-“ワ 💍 ワッカ (ユビワ)”,
-“ヲ 🎶 ヲ”,
-“ン 🌟 ン”
+"あ 🍬 あめ (キャンディ♪)",
+"い 💎 いし (ほうせき)",
+"う 🎵 うた (おうた♪)",
+"え 👗 えるさ みたいな ドレス",
+"お 👸 おひめさま",
+"か 👑 かんむり (ティアラ！)",
+"き ✨ きらきら ひかる",
+"く 👠 くつ (ガラスの くつ)",
+"け 🎂 けーき♪",
+"こ 💖 こころ (ハート)",
+"さ 🌸 さくら (きれい！)",
+"し 🏰 しろ (おしろ)",
+"す ⭐ すたー (おほし)",
+"せ 🧚 せかい (まほうの せかい)",
+"そ ☁️ そら",
+"た 💎 たからもの",
+"ち 🦋 ちょうちょ",
+"つ 🌙 つき (おつきさま)",
+"て 🤝 て (つなごう)",
+"と 🐦 とり (ことり)",
+"な 🌷 なのはな",
+"に 🌈 にじ (レインボー！)",
+"ぬ 🧸 ぬいぐるみ",
+"ね 🐱 ねこ (にゃー♪)",
+"の 🌹 のばら",
+"は 🌸 はな (おはな)",
+"ひ 💫 ひかり (キラキラ)",
+"ふ 🎀 ふりふり (フリル♪)",
+"へ 🪄 へんしん (プリキュア！)",
+"ほ ⭐ ほし (おほしさま)",
+"ま ✨ まほう (まほうつかい)",
+"み 🪞 みらー (かがみよ かがみ)",
+"む 💜 むらさき",
+"め 👸 めいく (おけしょう ごっこ)",
+"も 🍑 もも (ピーチ♪)",
+"や 🏔️ やま",
+"ゆ ❄️ ゆき (ありのままで♪)",
+"よ 🧚 ようせい (フェアリー)",
+"ら 💜 らべんだー",
+"り 🎀 りぼん (かわいい♪)",
+"る 💎 るびー (ほうせき)",
+"れ 👗 れーす (ドレス)",
+"ろ 🕯️ ろうそく (おねがい！)",
+"わ 💍 わっか (ゆびわ)",
+"を 🎶 を",
+"ん 🌟 ん",
+"ア 🍬 アメ (キャンディ♪)",
+"イ 💎 イシ (ホウセキ)",
+"ウ 🎵 ウタ♪",
+"エ 👗 エルサみたいな ドレス",
+"オ 👸 オヒメサマ",
+"カ 👑 カンムリ (ティアラ！)",
+"キ ✨ キラキラ",
+"ク 👠 クツ (ガラスの クツ)",
+"ケ 🎂 ケーキ♪",
+"コ 💖 ココロ (ハート)",
+"サ 🌸 サクラ",
+"シ 🏰 シロ (おシロ)",
+"ス ⭐ スター",
+"セ 🧚 セカイ (まほうの セカイ)",
+"ソ ☁️ ソラ",
+"タ 💎 タカラモノ",
+"チ 🦋 チョウチョ",
+"ツ 🌙 ツキ (おツキサマ)",
+"テ 🤝 テ (つなごう)",
+"ト 🐦 トリ (コトリ)",
+"ナ 🌷 ナノハナ",
+"ニ 🌈 ニジ (レインボー！)",
+"ヌ 🧸 ヌイグルミ",
+"ネ 🐱 ネコ (にゃー♪)",
+"ノ 🌹 ノバラ",
+"ハ 🌸 ハナ (おハナ)",
+"ヒ 💫 ヒカリ",
+"フ 🎀 フリフリ (フリル♪)",
+"ヘ 🪄 ヘンシン (プリキュア！)",
+"ホ ⭐ ホシ",
+"マ ✨ マホウ (まほうつかい)",
+"ミ 🪞 ミラー (かがみ)",
+"ム 💜 ムラサキ",
+"メ 👸 メイク (おケショウ)",
+"モ 🍑 モモ (ピーチ♪)",
+"ヤ 🏔️ ヤマ",
+"ユ ❄️ ユキ (ありのままで♪)",
+"ヨ 🧚 ヨウセイ (フェアリー)",
+"ラ 💜 ラベンダー",
+"リ 🎀 リボン (カワイイ♪)",
+"ル 💎 ルビー",
+"レ 👗 レース (ドレス)",
+"ロ 🕯️ ロウソク (おネガイ！)",
+"ワ 💍 ワッカ (ユビワ)",
+"ヲ 🎶 ヲ",
+"ン 🌟 ン"
 ];
-WS.forEach(function(s){var i=s.indexOf(” “);WD[s.charAt(0)]=s.substring(i+1);});
+WS.forEach(function(s){var i=s.indexOf(" ");WD[s.charAt(0)]=s.substring(i+1);});
 
-var PR=[“すごーい！👸✨”,“おひめさま みたい！👑”,“きらきら〜！💎”,“まほうつかい だね！🪄”,“かわいい〜！🎀”,“100てん！💖”,“ぱーふぇくと！⭐”,“すてき〜！🌸”,“やったね！🎉”,“てんさい！🌈”,“プリキュア みたい！💫”,“プリンセス！👸💖”];
-var GC=[”#FF69B4”,”#B388FF”,”#87CEEB”,”#FFB6D9”,”#FFEAA7”,”#DDA0DD”,”#FF9FF3”,”#54A0FF”,”#E8D5F5”,”#FFD700”,”#B2F5EA”,”#FF69B4”];
-var PCS=[”#FF69B4”,”#B388FF”,”#222222”,”#87CEEB”,”#FFD700”,”#FF6348”,”#2ED573”,”#FF9FF3”];
-var SHP=[“✨”,“⭐”,“💖”,“🌸”,“👑”,“💎”,“🎀”,“🦋”];
+var PR=["すごーい！👸✨","おひめさま みたい！👑","きらきら〜！💎","まほうつかい だね！🪄","かわいい〜！🎀","100てん！💖","ぱーふぇくと！⭐","すてき〜！🌸","やったね！🎉","てんさい！🌈","プリキュア みたい！💫","プリンセス！👸💖"];
+var GC=["#FF69B4","#B388FF","#87CEEB","#FFB6D9","#FFEAA7","#DDA0DD","#FF9FF3","#54A0FF","#E8D5F5","#FFD700","#B2F5EA","#FF69B4"];
+var PCS=["#FF69B4","#B388FF","#222222","#87CEEB","#FFD700","#FF6348","#2ED573","#FF9FF3"];
+var SHP=["✨","⭐","💖","🌸","👑","💎","🎀","🦋"];
 
-var mode=“hiragana”,grp=0,ch=null,isQuiz=false;
-var qCh=null,qOpts=[],qRes=null,score=0,streak=0,praise=””;
-var penCol=”#FF69B4”,penSz=6,showCf=false;
+var mode="hiragana",grp=0,ch=null,isQuiz=false;
+var qCh=null,qOpts=[],qRes=null,score=0,streak=0,praise="";
+var penCol="#FF69B4",penSz=6,showCf=false;
 var cvs=null,drawing=false,lastPt=null;
 var cfTimer=null;
 
-function getGroups(){return mode===“hiragana”?HG:KG;}
+function getGroups(){return mode==="hiragana"?HG:KG;}
 function getChars(g){return g.slice(1);}
 function allRomaji(){var o={};for(var k in R)o[R[k]]=1;return Object.keys(o);}
 function rnd(a){return a[Math.floor(Math.random()*a.length)];}
 
 function drawGuide(){
-if(!cvs)return;
-var x=cvs.getContext(“2d”);
-x.clearRect(0,0,340,340);
-x.strokeStyle=”#F5D0E0”;x.lineWidth=1;x.setLineDash([6,6]);
-x.beginPath();x.moveTo(170,0);x.lineTo(170,340);x.moveTo(0,170);x.lineTo(340,170);x.stroke();
-x.setLineDash([]);
-if(ch){x.font=“220px sans-serif”;x.fillStyle=“rgba(255,182,217,.22)”;x.textAlign=“center”;x.textBaseline=“middle”;x.fillText(ch,170,180);}
+  if(!cvs)return;
+  var x=cvs.getContext("2d");
+  x.clearRect(0,0,340,340);
+  x.strokeStyle="#F5D0E0";x.lineWidth=1;x.setLineDash([6,6]);
+  x.beginPath();x.moveTo(170,0);x.lineTo(170,340);x.moveTo(0,170);x.lineTo(340,170);x.stroke();
+  x.setLineDash([]);
+  if(ch){x.font="220px sans-serif";x.fillStyle="rgba(255,182,217,.22)";x.textAlign="center";x.textBaseline="middle";x.fillText(ch,170,180);}
 }
 
 function getPos(e){
-var r=cvs.getBoundingClientRect(),t=e.touches?e.touches[0]:e;
-return{x:(t.clientX-r.left)*(340/r.width),y:(t.clientY-r.top)*(340/r.height)};
+  var r=cvs.getBoundingClientRect(),t=e.touches?e.touches[0]:e;
+  return{x:(t.clientX-r.left)*(340/r.width),y:(t.clientY-r.top)*(340/r.height)};
 }
 function onDown(e){e.preventDefault();drawing=true;lastPt=getPos(e);}
 function onMove(e){
-e.preventDefault();if(!drawing||!cvs)return;
-var x=cvs.getContext(“2d”),p=getPos(e);
-x.strokeStyle=penCol;x.lineWidth=penSz;x.lineCap=“round”;x.lineJoin=“round”;
-x.beginPath();x.moveTo(lastPt.x,lastPt.y);x.lineTo(p.x,p.y);x.stroke();
-lastPt=p;
+  e.preventDefault();if(!drawing||!cvs)return;
+  var x=cvs.getContext("2d"),p=getPos(e);
+  x.strokeStyle=penCol;x.lineWidth=penSz;x.lineCap="round";x.lineJoin="round";
+  x.beginPath();x.moveTo(lastPt.x,lastPt.y);x.lineTo(p.x,p.y);x.stroke();
+  lastPt=p;
 }
 function onUp(e){e.preventDefault();drawing=false;lastPt=null;}
 
 function setupCanvas(){
-cvs=document.getElementById(“dc”);
-if(!cvs)return;
-drawGuide();
-cvs.addEventListener(“mousedown”,onDown);
-cvs.addEventListener(“mousemove”,onMove);
-cvs.addEventListener(“mouseup”,onUp);
-cvs.addEventListener(“mouseleave”,onUp);
-cvs.addEventListener(“touchstart”,onDown,{passive:false});
-cvs.addEventListener(“touchmove”,onMove,{passive:false});
-cvs.addEventListener(“touchend”,onUp,{passive:false});
+  cvs=document.getElementById("dc");
+  if(!cvs)return;
+  drawGuide();
+  cvs.addEventListener("mousedown",onDown);
+  cvs.addEventListener("mousemove",onMove);
+  cvs.addEventListener("mouseup",onUp);
+  cvs.addEventListener("mouseleave",onUp);
+  cvs.addEventListener("touchstart",onDown,{passive:false});
+  cvs.addEventListener("touchmove",onMove,{passive:false});
+  cvs.addEventListener("touchend",onUp,{passive:false});
 }
 
 function doConfetti(){
-showCf=true;
-praise=rnd(PR);
-render();
-if(cfTimer)clearTimeout(cfTimer);
-cfTimer=setTimeout(function(){showCf=false;render();},2200);
+  showCf=true;
+  praise=rnd(PR);
+  render();
+  if(cfTimer)clearTimeout(cfTimer);
+  cfTimer=setTimeout(function(){showCf=false;render();},2200);
 }
 
 function genQuiz(){
-var gs=getGroups(),all=[];
-gs.forEach(function(g){all=all.concat(getChars(g));});
-var t=rnd(all),rv=R[t],opts=[rv],ar=allRomaji();
-while(opts.length<4){var x=rnd(ar);if(opts.indexOf(x)===-1)opts.push(x);}
-opts.sort(function(){return Math.random()-.5;});
-qCh=t;qOpts=opts;qRes=null;
+  var gs=getGroups(),all=[];
+  gs.forEach(function(g){all=all.concat(getChars(g));});
+  var t=rnd(all),rv=R[t],opts=[rv],ar=allRomaji();
+  while(opts.length<4){var x=rnd(ar);if(opts.indexOf(x)===-1)opts.push(x);}
+  opts.sort(function(){return Math.random()-.5;});
+  qCh=t;qOpts=opts;qRes=null;
 }
 
 function render(){
-var app=document.getElementById(“app”);
-var gs=getGroups();
-var chars=getChars(gs[grp]);
-if(!ch)ch=chars[0];
-var h=””;
+  var app=document.getElementById("app");
+  var gs=getGroups();
+  var chars=getChars(gs[grp]);
+  if(!ch)ch=chars[0];
+  var h="";
 
-// confetti
-if(showCf){
-for(var i=0;i<20;i++){
-h+=”<div style="position:fixed;top:-20px;left:”+Math.random()*100+”%;font-size:18px;opacity:0;pointer-events:none;z-index:200;animation:confettiFall 2s ease-in “+Math.random()*0.5+“s forwards">”+rnd(SHP)+”</div>”;
-}
-h+=”<div style="position:fixed;top:30%;left:50%;font-size:clamp(20px,6vw,32px);font-weight:900;color:#FF69B4;text-shadow:0 2px 10px rgba(255,105,180,.3);animation:praiseFloat 2s ease-out forwards;z-index:150;pointer-events:none;white-space:nowrap">”+praise+”</div>”;
-}
-
-// sparkles
-h+=”<div style="position:absolute;top:20px;left:10%;font-size:20px;animation:sparkle 3s infinite;pointer-events:none;opacity:.5">✨</div>”;
-h+=”<div style="position:absolute;top:60px;right:8%;font-size:16px;animation:sparkle 4s infinite 1s;pointer-events:none;opacity:.4">💎</div>”;
-
-// header
-h+=”<div style="text-align:center;margin-bottom:10px">”;
-h+=”<div style="font-size:28px;animation:tiaraGlow 2s infinite;margin-bottom:-8px">👑</div>”;
-h+=”<div style="font-size:clamp(22px,6vw,34px);font-weight:900;margin:0 0 2px;background:linear-gradient(135deg,#FF69B4,#B388FF,#FF69B4,#FFD700);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:float 3s ease-in-out infinite;letter-spacing:3px">プリンセス もじランド</div>”;
-h+=”<div style="font-size:13px;color:#C9A0DC;font-weight:700">🌸 まほうの もじを おぼえよう！ 🌸</div>”;
-h+=”</div>”;
-
-// mode buttons
-h+=”<div style="display:flex;gap:8px;justify-content:center;margin:10px 0;flex-wrap:wrap">”;
-var modes=[[“hiragana”,“ひらがな”,“🌸”],[“katakana”,“カタカナ”,“⭐”],[“quiz”,“クイズ”,“👑”]];
-for(var i=0;i<modes.length;i++){
-var m=modes[i],ac=(m[0]===“quiz”)?isQuiz:(mode===m[0]&&!isQuiz);
-h+=”<button data-mode="”+m[0]+”" style="padding:10px 20px;border-radius:50px;font-size:clamp(14px,3.5vw,17px);font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;”;
-if(ac)h+=“border:none;background:linear-gradient(135deg,#FF69B4,#B388FF);color:#fff;box-shadow:0 4px 15px rgba(255,105,180,.4)”;
-else h+=“border:2px solid #FFD6EB;background:rgba(255,255,255,.8);color:#C9A0DC”;
-h+=”">”+m[2]+” “+m[1]+”</button>”;
-}
-h+=”</div>”;
-
-if(isQuiz){
-h+=”<div style="max-width:400px;margin:0 auto;text-align:center">”;
-// scores
-h+=”<div style="display:flex;justify-content:center;gap:16px;margin-bottom:16px">”;
-h+=”<div style="background:rgba(255,255,255,.9);border-radius:16px;padding:8px 20px;box-shadow:0 2px 10px rgba(255,105,180,.15);border:2px solid #FFD6EB"><div style="font-size:12px;color:#C9A0DC;font-weight:700">💎 スコア</div><div style="font-size:28px;font-weight:900;color:#FF69B4">”+score+”</div></div>”;
-h+=”<div style="background:rgba(255,255,255,.9);border-radius:16px;padding:8px 20px;box-shadow:0 2px 10px rgba(179,136,255,.15);border:2px solid #E8D5F5"><div style="font-size:12px;color:#C9A0DC;font-weight:700">🔥 れんぞく</div><div style="font-size:28px;font-weight:900;color:#B388FF">”+streak+(streak>=5?” 👸”:streak>=3?” 👑”:streak>=2?” ✨”:””)+”</div></div>”;
-h+=”</div>”;
-// question
-h+=”<div style="background:rgba(255,255,255,.92);border-radius:24px;padding:24px;box-shadow:0 4px 20px rgba(255,105,180,.12);border:2px solid #FFD6EB;margin-bottom:16px;animation:”+(qRes===“wrong”?“shake .5s”:“popIn .4s ease-out”)+”">”;
-h+=”<div style="font-size:15px;color:#C9A0DC;margin:0 0 4px;font-weight:700">🪄 このもじは な〜に？</div>”;
-h+=”<div style="font-size:clamp(80px,20vw,120px);font-weight:900;line-height:1.2;color:#FF69B4;animation:bounce 2s ease-in-out infinite;text-shadow:0 4px 15px rgba(255,105,180,.2)">”+qCh+”</div>”;
-if(qRes===“correct”)h+=”<div style="font-size:22px;color:#FF69B4;font-weight:900;animation:popIn .3s;margin-top:4px">”+praise+”</div>”;
-h+=”</div>”;
-// options
-h+=”<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">”;
-for(var i=0;i<qOpts.length;i++){
-var o=qOpts[i],ok=qRes&&o===R[qCh];
-h+=”<button data-ans="”+i+”" style="padding:16px;border-radius:16px;border:3px solid “+(ok?”#FF69B4”:”#FFD6EB”)+”;background:”+(ok?“linear-gradient(135deg,#FFF0F5,#FFE4F0)”:“rgba(255,255,255,.9)”)+”;font-size:clamp(20px,5vw,28px);font-weight:700;cursor:pointer;font-family:inherit;color:#666">”+o+”</button>”;
-}
-h+=”</div>”;
-h+=”<button data-back="1" style="margin-top:16px;padding:10px 24px;border-radius:50px;border:2px solid #FFD6EB;background:rgba(255,255,255,.8);font-size:14px;cursor:pointer;font-family:inherit;color:#C9A0DC;font-weight:700">🌸 もどる</button>”;
-h+=”</div>”;
-} else {
-// group tabs
-h+=”<div style="display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch">”;
-for(var i=0;i<gs.length;i++){
-var ac=grp===i;
-h+=”<button data-grp="”+i+”" style="padding:8px 14px;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .3s;”;
-if(ac)h+=“background:linear-gradient(135deg,”+GC[i%GC.length]+”,”+GC[(i+1)%GC.length]+”);color:#fff;border:none;box-shadow:0 3px 12px “+GC[i%GC.length]+“44”;
-else h+=“background:rgba(255,255,255,.7);color:#C9A0DC;border:2px solid #FFD6EB”;
-h+=”">”+gs[i][0]+”</button>”;
-}
-h+=”</div>”;
-
-```
-// char grid
-h+="<div style=\"display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px\">";
-for(var i=0;i<chars.length;i++){
-  var c=chars[i],sl=ch===c,gc=GC[grp%GC.length];
-  h+="<button data-ch=\""+i+"\" style=\"width:clamp(56px,15vw,68px);height:clamp(56px,15vw,68px);border-radius:18px;border:3px solid "+(sl?gc:"#FFE4F0")+";background:"+(sl?"#fff":"rgba(255,255,255,.7)")+";font-size:clamp(28px,7vw,36px);font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;color:"+(sl?gc:"#999")+";"+(sl?"animation:wiggle .5s;box-shadow:0 4px 15px "+gc+"44":"box-shadow:0 2px 6px rgba(255,105,180,.08)")+"\">"+c+"</button>";
-}
-h+="</div>";
-
-// detail card
-if(ch){
-  var gc=GC[grp%GC.length];
-  h+="<div style=\"background:rgba(255,255,255,.92);border-radius:24px;padding:16px;box-shadow:0 4px 24px rgba(255,105,180,.12);border:2px solid #FFE4F0;max-width:400px;margin:0 auto 16px;animation:popIn .4s ease-out\">";
-  h+="<div style=\"text-align:center;margin-bottom:12px\">";
-  h+="<div style=\"font-size:clamp(64px,18vw,100px);font-weight:900;line-height:1.1;animation:bounce 2s ease-in-out infinite;color:"+gc+";text-shadow:0 4px 15px "+gc+"33\">"+ch+"</div>";
-  h+="<div style=\"font-size:clamp(18px,5vw,24px);color:#B388FF;font-weight:700;margin-bottom:6px\">"+R[ch]+"</div>";
-  h+="<div style=\"text-align:center\"><span style=\"font-size:clamp(13px,3.5vw,17px);color:#666;background:linear-gradient(135deg,#FFF0F5,#F0E6FF);display:inline-block;padding:8px 18px;border-radius:50px;border:1px solid #FFE4F0;font-weight:700;line-height:1.5\">"+(WD[ch]||ch)+"</span></div>";
-  h+="</div>";
-
-  // canvas
-  h+="<div style=\"position:relative;margin-top:14px\">";
-  h+="<div style=\"text-align:center;font-size:14px;color:#C9A0DC;margin:0 0 8px;font-weight:700\">🪄 ゆびで まほうの もじを かこう！</div>";
-  h+="<canvas id=\"dc\" width=\"340\" height=\"340\" style=\"width:100%;max-width:340px;height:auto;aspect-ratio:1;background:linear-gradient(135deg,#FFF9FC,#FFF5F9);border-radius:20px;border:3px dashed #FFB6D9;touch-action:none;cursor:crosshair;display:block;margin:0 auto\"></canvas>";
-  h+="<button data-clear=\"1\" style=\"position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:2px solid #FFB6D9;border-radius:50%;width:40px;height:40px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(255,105,180,.2)\">🗑️</button>";
-  h+="</div>";
-
-  // pen colors
-  h+="<div style=\"display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap\">";
-  for(var i=0;i<PCS.length;i++){
-    var c=PCS[i],sl=penCol===c;
-    h+="<div data-pen=\""+i+"\" style=\"width:28px;height:28px;border-radius:50%;cursor:pointer;background:"+c+";border:"+(sl?"3px solid #FFD700":"2px solid #FFE4F0")+";transform:"+(sl?"scale(1.2)":"scale(1)")+";box-shadow:"+(sl?"0 0 8px rgba(255,215,0,.5)":"none")+"\"></div>";
+  // confetti
+  if(showCf){
+    for(var i=0;i<20;i++){
+      h+="<div style=\"position:fixed;top:-20px;left:"+Math.random()*100+"%;font-size:18px;opacity:0;pointer-events:none;z-index:200;animation:confettiFall 2s ease-in "+Math.random()*0.5+"s forwards\">"+rnd(SHP)+"</div>";
+    }
+    h+="<div style=\"position:fixed;top:30%;left:50%;font-size:clamp(20px,6vw,32px);font-weight:900;color:#FF69B4;text-shadow:0 2px 10px rgba(255,105,180,.3);animation:praiseFloat 2s ease-out forwards;z-index:150;pointer-events:none;white-space:nowrap\">"+praise+"</div>";
   }
-  h+="<div style=\"margin-left:8px;display:flex;gap:6px;align-items:center\">";
-  var szs=[4,6,10];
-  for(var i=0;i<szs.length;i++){
-    var s=szs[i],sl=penSz===s;
-    h+="<div data-psz=\""+i+"\" style=\"width:"+(s+18)+"px;height:"+(s+18)+"px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;border:"+(sl?"2px solid #FF69B4":"2px solid #FFE4F0")+";background:"+(sl?"#FFF0F5":"#fff")+"\"><div style=\"width:"+s+"px;height:"+s+"px;border-radius:50%;background:#FF69B4\"></div></div>";
-  }
-  h+="</div></div>";
+
+  // sparkles
+  h+="<div style=\"position:absolute;top:20px;left:10%;font-size:20px;animation:sparkle 3s infinite;pointer-events:none;opacity:.5\">✨</div>";
+  h+="<div style=\"position:absolute;top:60px;right:8%;font-size:16px;animation:sparkle 4s infinite 1s;pointer-events:none;opacity:.4\">💎</div>";
+
+  // header
+  h+="<div style=\"text-align:center;margin-bottom:10px\">";
+  h+="<div style=\"font-size:28px;animation:tiaraGlow 2s infinite;margin-bottom:-8px\">👑</div>";
+  h+="<div style=\"font-size:clamp(22px,6vw,34px);font-weight:900;margin:0 0 2px;background:linear-gradient(135deg,#FF69B4,#B388FF,#FF69B4,#FFD700);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:float 3s ease-in-out infinite;letter-spacing:3px\">プリンセス もじランド</div>";
+  h+="<div style=\"font-size:13px;color:#C9A0DC;font-weight:700\">🌸 まほうの もじを おぼえよう！ 🌸</div>";
   h+="</div>";
-}
-```
 
-}
+  // mode buttons
+  h+="<div style=\"display:flex;gap:8px;justify-content:center;margin:10px 0;flex-wrap:wrap\">";
+  var modes=[["hiragana","ひらがな","🌸"],["katakana","カタカナ","⭐"],["quiz","クイズ","👑"]];
+  for(var i=0;i<modes.length;i++){
+    var m=modes[i],ac=(m[0]==="quiz")?isQuiz:(mode===m[0]&&!isQuiz);
+    h+="<button data-mode=\""+m[0]+"\" style=\"padding:10px 20px;border-radius:50px;font-size:clamp(14px,3.5vw,17px);font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;";
+    if(ac)h+="border:none;background:linear-gradient(135deg,#FF69B4,#B388FF);color:#fff;box-shadow:0 4px 15px rgba(255,105,180,.4)";
+    else h+="border:2px solid #FFD6EB;background:rgba(255,255,255,.8);color:#C9A0DC";
+    h+="\">"+m[2]+" "+m[1]+"</button>";
+  }
+  h+="</div>";
 
-h+=”<div style="text-align:center;padding:16px 0 8px;font-size:12px;color:#DDA0DD;font-weight:700">👑 プリンセス もじランド 🌸</div>”;
-app.innerHTML=h;
+  if(isQuiz){
+    h+="<div style=\"max-width:400px;margin:0 auto;text-align:center\">";
+    // scores
+    h+="<div style=\"display:flex;justify-content:center;gap:16px;margin-bottom:16px\">";
+    h+="<div style=\"background:rgba(255,255,255,.9);border-radius:16px;padding:8px 20px;box-shadow:0 2px 10px rgba(255,105,180,.15);border:2px solid #FFD6EB\"><div style=\"font-size:12px;color:#C9A0DC;font-weight:700\">💎 スコア</div><div style=\"font-size:28px;font-weight:900;color:#FF69B4\">"+score+"</div></div>";
+    h+="<div style=\"background:rgba(255,255,255,.9);border-radius:16px;padding:8px 20px;box-shadow:0 2px 10px rgba(179,136,255,.15);border:2px solid #E8D5F5\"><div style=\"font-size:12px;color:#C9A0DC;font-weight:700\">🔥 れんぞく</div><div style=\"font-size:28px;font-weight:900;color:#B388FF\">"+streak+(streak>=5?" 👸":streak>=3?" 👑":streak>=2?" ✨":"")+"</div></div>";
+    h+="</div>";
+    // question
+    h+="<div style=\"background:rgba(255,255,255,.92);border-radius:24px;padding:24px;box-shadow:0 4px 20px rgba(255,105,180,.12);border:2px solid #FFD6EB;margin-bottom:16px;animation:"+(qRes==="wrong"?"shake .5s":"popIn .4s ease-out")+"\">";
+    h+="<div style=\"font-size:15px;color:#C9A0DC;margin:0 0 4px;font-weight:700\">🪄 このもじは な〜に？</div>";
+    h+="<div style=\"font-size:clamp(80px,20vw,120px);font-weight:900;line-height:1.2;color:#FF69B4;animation:bounce 2s ease-in-out infinite;text-shadow:0 4px 15px rgba(255,105,180,.2)\">"+qCh+"</div>";
+    if(qRes==="correct")h+="<div style=\"font-size:22px;color:#FF69B4;font-weight:900;animation:popIn .3s;margin-top:4px\">"+praise+"</div>";
+    h+="</div>";
+    // options
+    h+="<div style=\"display:grid;grid-template-columns:1fr 1fr;gap:10px\">";
+    for(var i=0;i<qOpts.length;i++){
+      var o=qOpts[i],ok=qRes&&o===R[qCh];
+      h+="<button data-ans=\""+i+"\" style=\"padding:16px;border-radius:16px;border:3px solid "+(ok?"#FF69B4":"#FFD6EB")+";background:"+(ok?"linear-gradient(135deg,#FFF0F5,#FFE4F0)":"rgba(255,255,255,.9)")+";font-size:clamp(20px,5vw,28px);font-weight:700;cursor:pointer;font-family:inherit;color:#666\">"+o+"</button>";
+    }
+    h+="</div>";
+    h+="<button data-back=\"1\" style=\"margin-top:16px;padding:10px 24px;border-radius:50px;border:2px solid #FFD6EB;background:rgba(255,255,255,.8);font-size:14px;cursor:pointer;font-family:inherit;color:#C9A0DC;font-weight:700\">🌸 もどる</button>";
+    h+="</div>";
+  } else {
+    // group tabs
+    h+="<div style=\"display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch\">";
+    for(var i=0;i<gs.length;i++){
+      var ac=grp===i;
+      h+="<button data-grp=\""+i+"\" style=\"padding:8px 14px;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .3s;";
+      if(ac)h+="background:linear-gradient(135deg,"+GC[i%GC.length]+","+GC[(i+1)%GC.length]+");color:#fff;border:none;box-shadow:0 3px 12px "+GC[i%GC.length]+"44";
+      else h+="background:rgba(255,255,255,.7);color:#C9A0DC;border:2px solid #FFD6EB";
+      h+="\">"+gs[i][0]+"</button>";
+    }
+    h+="</div>";
 
-if(!isQuiz&&ch)setupCanvas();
+    // char grid
+    h+="<div style=\"display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px\">";
+    for(var i=0;i<chars.length;i++){
+      var c=chars[i],sl=ch===c,gc=GC[grp%GC.length];
+      h+="<button data-ch=\""+i+"\" style=\"width:clamp(56px,15vw,68px);height:clamp(56px,15vw,68px);border-radius:18px;border:3px solid "+(sl?gc:"#FFE4F0")+";background:"+(sl?"#fff":"rgba(255,255,255,.7)")+";font-size:clamp(28px,7vw,36px);font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;color:"+(sl?gc:"#999")+";"+(sl?"animation:wiggle .5s;box-shadow:0 4px 15px "+gc+"44":"box-shadow:0 2px 6px rgba(255,105,180,.08)")+"\">"+c+"</button>";
+    }
+    h+="</div>";
+
+    // detail card
+    if(ch){
+      var gc=GC[grp%GC.length];
+      h+="<div style=\"background:rgba(255,255,255,.92);border-radius:24px;padding:16px;box-shadow:0 4px 24px rgba(255,105,180,.12);border:2px solid #FFE4F0;max-width:400px;margin:0 auto 16px;animation:popIn .4s ease-out\">";
+      h+="<div style=\"text-align:center;margin-bottom:12px\">";
+      h+="<div style=\"font-size:clamp(64px,18vw,100px);font-weight:900;line-height:1.1;animation:bounce 2s ease-in-out infinite;color:"+gc+";text-shadow:0 4px 15px "+gc+"33\">"+ch+"</div>";
+      h+="<div style=\"font-size:clamp(18px,5vw,24px);color:#B388FF;font-weight:700;margin-bottom:6px\">"+R[ch]+"</div>";
+      h+="<div style=\"text-align:center\"><span style=\"font-size:clamp(13px,3.5vw,17px);color:#666;background:linear-gradient(135deg,#FFF0F5,#F0E6FF);display:inline-block;padding:8px 18px;border-radius:50px;border:1px solid #FFE4F0;font-weight:700;line-height:1.5\">"+(WD[ch]||ch)+"</span></div>";
+      h+="</div>";
+
+      // canvas
+      h+="<div style=\"position:relative;margin-top:14px\">";
+      h+="<div style=\"text-align:center;font-size:14px;color:#C9A0DC;margin:0 0 8px;font-weight:700\">🪄 ゆびで まほうの もじを かこう！</div>";
+      h+="<canvas id=\"dc\" width=\"340\" height=\"340\" style=\"width:100%;max-width:340px;height:auto;aspect-ratio:1;background:linear-gradient(135deg,#FFF9FC,#FFF5F9);border-radius:20px;border:3px dashed #FFB6D9;touch-action:none;cursor:crosshair;display:block;margin:0 auto\"></canvas>";
+      h+="<button data-clear=\"1\" style=\"position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:2px solid #FFB6D9;border-radius:50%;width:40px;height:40px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(255,105,180,.2)\">🗑️</button>";
+      h+="</div>";
+
+      // pen colors
+      h+="<div style=\"display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap\">";
+      for(var i=0;i<PCS.length;i++){
+        var c=PCS[i],sl=penCol===c;
+        h+="<div data-pen=\""+i+"\" style=\"width:28px;height:28px;border-radius:50%;cursor:pointer;background:"+c+";border:"+(sl?"3px solid #FFD700":"2px solid #FFE4F0")+";transform:"+(sl?"scale(1.2)":"scale(1)")+";box-shadow:"+(sl?"0 0 8px rgba(255,215,0,.5)":"none")+"\"></div>";
+      }
+      h+="<div style=\"margin-left:8px;display:flex;gap:6px;align-items:center\">";
+      var szs=[4,6,10];
+      for(var i=0;i<szs.length;i++){
+        var s=szs[i],sl=penSz===s;
+        h+="<div data-psz=\""+i+"\" style=\"width:"+(s+18)+"px;height:"+(s+18)+"px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;border:"+(sl?"2px solid #FF69B4":"2px solid #FFE4F0")+";background:"+(sl?"#FFF0F5":"#fff")+"\"><div style=\"width:"+s+"px;height:"+s+"px;border-radius:50%;background:#FF69B4\"></div></div>";
+      }
+      h+="</div></div>";
+      h+="</div>";
+    }
+  }
+
+  h+="<div style=\"text-align:center;padding:16px 0 8px;font-size:12px;color:#DDA0DD;font-weight:700\">👑 プリンセス もじランド 🌸</div>";
+  app.innerHTML=h;
+
+  if(!isQuiz&&ch)setupCanvas();
 }
 
 // Event delegation
-document.getElementById(“app”).addEventListener(“click”,function(e){
-var t=e.target;
-while(t&&t!==this){
-if(t.dataset){
-if(t.dataset.mode!==undefined){
-var m=t.dataset.mode;
-if(m===“quiz”){isQuiz=true;score=0;streak=0;genQuiz();}
-else{mode=m;isQuiz=false;grp=0;ch=null;}
-render();return;
-}
-if(t.dataset.grp!==undefined){
-grp=parseInt(t.dataset.grp);
-ch=getChars(getGroups()[grp])[0];
-render();return;
-}
-if(t.dataset.ch!==undefined){
-var idx=parseInt(t.dataset.ch);
-ch=getChars(getGroups()[grp])[idx];
-render();doConfetti();return;
-}
-if(t.dataset.ans!==undefined){
-if(qRes)return;
-var a=qOpts[parseInt(t.dataset.ans)];
-if(a===R[qCh]){qRes=“correct”;score++;streak++;doConfetti();setTimeout(function(){genQuiz();render();},1400);}
-else{qRes=“wrong”;streak=0;render();setTimeout(function(){qRes=null;render();},1000);}
-return;
-}
-if(t.dataset.back!==undefined){
-isQuiz=false;render();return;
-}
-if(t.dataset.clear!==undefined){
-drawGuide();return;
-}
-if(t.dataset.pen!==undefined){
-penCol=PCS[parseInt(t.dataset.pen)];render();return;
-}
-if(t.dataset.psz!==undefined){
-penSz=[4,6,10][parseInt(t.dataset.psz)];render();return;
-}
-}
-t=t.parentElement;
-}
+document.getElementById("app").addEventListener("click",function(e){
+  var t=e.target;
+  while(t&&t!==this){
+    if(t.dataset){
+      if(t.dataset.mode!==undefined){
+        var m=t.dataset.mode;
+        if(m==="quiz"){isQuiz=true;score=0;streak=0;genQuiz();}
+        else{mode=m;isQuiz=false;grp=0;ch=null;}
+        render();return;
+      }
+      if(t.dataset.grp!==undefined){
+        grp=parseInt(t.dataset.grp);
+        ch=getChars(getGroups()[grp])[0];
+        render();return;
+      }
+      if(t.dataset.ch!==undefined){
+        var idx=parseInt(t.dataset.ch);
+        ch=getChars(getGroups()[grp])[idx];
+        render();doConfetti();return;
+      }
+      if(t.dataset.ans!==undefined){
+        if(qRes)return;
+        var a=qOpts[parseInt(t.dataset.ans)];
+        if(a===R[qCh]){qRes="correct";score++;streak++;doConfetti();setTimeout(function(){genQuiz();render();},1400);}
+        else{qRes="wrong";streak=0;render();setTimeout(function(){qRes=null;render();},1000);}
+        return;
+      }
+      if(t.dataset.back!==undefined){
+        isQuiz=false;render();return;
+      }
+      if(t.dataset.clear!==undefined){
+        drawGuide();return;
+      }
+      if(t.dataset.pen!==undefined){
+        penCol=PCS[parseInt(t.dataset.pen)];render();return;
+      }
+      if(t.dataset.psz!==undefined){
+        penSz=[4,6,10][parseInt(t.dataset.psz)];render();return;
+      }
+    }
+    t=t.parentElement;
+  }
 });
 
 render();
 })();
 </script>
-
 </body>
 </html>
